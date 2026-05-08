@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plan de Capacitación SST - Industria Textil SAC</title>
+    <style>
+        :root {
+            --neon-cyan: #00e5ff;
+            --bg-panel: #06090f;
+            --card-bg: #0d121a;
+            --accent-glow: rgba(0, 229, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-panel);
+            color: #e0e6ed;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .main-frame {
+            max-width: 1250px;
+            margin: auto;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 15px;
+            background: #0a0f14;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+
+        .header {
+            background: linear-gradient(90deg, #001a33, #004d66);
+            padding: 35px;
+            text-align: center;
+            border-bottom: 3px solid var(--neon-cyan);
+        }
+
+        .header h1 {
+            color: var(--neon-cyan);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background-color: var(--neon-cyan);
+        }
+
+        .pillar {
+            background-color: #0a0f14;
+            padding: 30px;
+        }
+
+        .pillar-header {
+            color: var(--neon-cyan);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-glow);
+            padding-bottom: 10px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .info-card:hover { border-color: var(--neon-cyan); transform: translateY(-5px); }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--neon-cyan);
+        }
+
+        .card-body { padding: 20px; }
+        .card-body h3 { color: var(--neon-cyan); margin-top: 0; font-size: 1.2rem; }
+        .card-body ul { padding-left: 20px; font-size: 0.9rem; line-height: 1.6; color: #b0c4de; }
+        .card-body li { margin-bottom: 10px; }
+
+        .strategy-full {
+            grid-column: span 2;
+            background: #0d121a;
+            padding: 40px;
+            border-top: 3px solid var(--neon-cyan);
+            text-align: center;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .strat-card {
+            background: rgba(0, 229, 255, 0.05);
+            padding: 25px;
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+        }
+
+        .strat-card strong { color: var(--neon-cyan); display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+        .footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #00ffaa;
+            letter-spacing: 1px;
+        }
+
+        /* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+        /* Tablets y móviles grandes (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            body { padding: 15px; }
+            .main-frame { border-radius: 12px; }
+            .header { padding: 20px; }
+            .header h1 { font-size: 1.6rem; letter-spacing: 2px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .pillar { padding: 20px; }
+            .pillar-header { font-size: 1.3rem; }
+            .card-img { height: 150px; }
+            .card-body h3 { font-size: 1.1rem; }
+            .card-body ul { font-size: 0.85rem; }
+            .strategy-full { padding: 30px; }
+            .strategy-grid { grid-template-columns: 1fr; gap: 20px; }
+            .strat-card { padding: 20px; }
+        }
+
+        /* Móviles (max-width: 768px) */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .main-frame { border: 1px solid var(--neon-cyan); }
+            .header { padding: 15px; }
+            .header h1 { font-size: 1.4rem; letter-spacing: 1px; }
+            .header p { font-size: 0.85rem; }
+            .pillar { padding: 15px; }
+            .pillar-header { font-size: 1.1rem; margin-bottom: 15px; }
+            .info-card { margin-bottom: 20px; }
+            .card-img { height: 120px; }
+            .card-body { padding: 15px; }
+            .card-body h3 { font-size: 1rem; }
+            .card-body ul { font-size: 0.8rem; }
+            .card-body li { margin-bottom: 8px; }
+            .strategy-full { padding: 20px; }
+            .strategy-full h2 { font-size: 1.2rem; }
+            .strategy-grid { gap: 15px; }
+            .strat-card { padding: 15px; }
+            .strat-card strong { font-size: 1rem; }
+            .footer { padding: 15px; font-size: 0.9rem; }
+        }
+
+        /* Móviles pequeños (max-width: 480px) */
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .main-frame { border-radius: 8px; }
+            .header { padding: 10px; }
+            .header h1 { font-size: 1.2rem; letter-spacing: 1px; }
+            .header p { font-size: 0.8rem; }
+            .pillar { padding: 10px; }
+            .pillar-header { font-size: 1rem; margin-bottom: 10px; }
+            .info-card { margin-bottom: 15px; }
+            .card-img { height: 100px; }
+            .card-body { padding: 10px; }
+            .card-body h3 { font-size: 0.95rem; }
+            .card-body ul { font-size: 0.75rem; }
+            .card-body li { margin-bottom: 5px; }
+            .strategy-full { padding: 15px; }
+            .strategy-full h2 { font-size: 1.1rem; }
+            .strategy-grid { gap: 10px; }
+            .strat-card { padding: 10px; }
+            .strat-card strong { font-size: 0.9rem; }
+            .strat-card p { font-size: 0.8rem; }
+            .footer { padding: 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-frame">
+    <div class="header">
+        <h1>PROGRAMA INTEGRAL DE CAPACITACIÓN SST</h1>
+        <p>Estrategia de Seguridad Textil SAC • Ley N.º 29783</p>
+    </div>
+
+    <div class="content-grid">
+        <div class="pillar">
+            <div class="pillar-header">1. Seguridad Industrial</div>
+            
+            <div class="info-card">
+                <img src="img/seguridad2.jpeg" class="card-img">
+                <div class="card-body">
+                    <h3>Operatividad y Riesgos Mecánicos</h3>
+                    <ul>
+                        <li><strong>IPERC:</strong> Capacitación para 300 operarios en detección de peligros antes de la jornada de 10h.</li>
+                        <li><strong>Corte y Costura:</strong> Entrenamiento en uso de cortadoras circulares y prevención de atrapamientos con agujas.</li>
+                        <li><strong>Metodología 5S:</strong> Orden y limpieza para eliminar caídas recurrentes en logística y producción.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <img src="img/proteccion.jpeg" class="card-img">
+                <div class="card-body">
+                    <h3>Protección y Emergencias</h3>
+                    <ul>
+                        <li><strong>Uso de EPP:</strong> Ajuste y vida útil de guantes de malla de acero, protectores auditivos y calzado antideslizante.</li>
+                        <li><strong>Señalética:</strong> Interpretación de colores y protocolos de evacuación ante alta densidad de máquinas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="pillar" style="border-left: 2px solid var(--neon-cyan);">
+            <div class="pillar-header">2. Salud Ocupacional</div>
+
+            <div class="info-card">
+                <img src="img/seguridad,jpeg.jpg" class="card-img">
+                <div class="card-body">
+                    <h3>Ergonomía e Higiene Industrial</h3>
+                    <ul>
+                        <li><strong>Higiene:</strong> Control del ruido industrial prolongado y mejora de iluminación para reducir fatiga visual.</li>
+                        <li><strong>Biomecánica:</strong> Corrección de posturas en costura y planchado para evitar trastornos musculoesqueléticos.</li>
+                        <li><strong>Pausas Activas:</strong> Estiramientos obligatorios durante los turnos rotativos extensos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <img src="img/gestionderiesgos,jpeg.jpg" class="card-img">
+                <div class="card-body">
+                    <h3>Gestión de Riesgos Ambientales</h3>
+                    <ul>
+                        <li><strong>Planchado:</strong> Prevención de estrés térmico, hidratación y manejo seguro de vapores a alta presión.</li>
+                        <li><strong>Primeros Auxilios:</strong> Atención inmediata de quemaduras térmicas y cortes hemorrágicos.</li>
+                        <li><strong>Fatiga Laboral:</strong> Manejo del sueño y nutrición para evitar errores por agotamiento.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-full">
+            <h2 style="color: var(--neon-cyan); text-transform: uppercase;">Estrategia de Fortalecimiento Cultural</h2>
+            <div class="strategy-grid">
+                <div class="strat-card">
+                    <strong>Liderazgo Visible</strong>
+                    <p>Supervisores capacitados para ser el primer ejemplo normativo en planta.</p>
+                </div>
+                <div class="strat-card">
+                    <strong>Casi-Accidentes</strong>
+                    <p>Reporte preventivo sin sanciones para identificar fallas antes de que ocurran.</p>
+                </div>
+                <div class="strat-card">
+                    <strong>Evaluación Práctica</strong>
+                    <p>Pruebas en el puesto de trabajo para asegurar el cumplimiento de estándares.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        META: Proteger a 300 trabajadores y optimizar la inversión de S/ 500,000.
+    </div>
+</div>
+
+</body>
+</html>

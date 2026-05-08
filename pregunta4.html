@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Factores de Riesgo - Industria Textil SAC</title>
+    <style>
+        :root {
+            --danger-red: #ff3e3e;
+            --warning-orange: #ffa500;
+            --safe-blue: #00d4ff;
+            --dark-bg: #05070a;
+            --card-bg: #0d121d;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #e0e6ed;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .main-container {
+            max-width: 1300px;
+            margin: auto;
+            border: 2px solid var(--safe-blue);
+            border-radius: 15px;
+            background: #0a0f14;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #001f3f, #004d66);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--safe-blue);
+        }
+
+        .header h1 {
+            color: var(--safe-blue);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px var(--safe-blue);
+        }
+
+        /* GRID DE FACTORES */
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .factor-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .factor-card:hover { transform: scale(1.01); border-color: var(--safe-blue); }
+
+        .factor-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--safe-blue);
+        }
+
+        .factor-content { padding: 25px; }
+
+        .factor-title {
+            color: var(--safe-blue);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sub-risk {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--warning-orange);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .sub-risk strong { color: var(--warning-orange); font-size: 1rem; }
+        .sub-risk ul { margin: 8px 0 0 0; padding-left: 20px; font-size: 0.88rem; color: #b0c4de; }
+
+        .footer-summary {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            color: var(--danger-red);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+        /* Tablets y móviles grandes (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            body { padding: 15px; }
+            .main-container { border-radius: 12px; }
+            .header { padding: 25px; }
+            .header h1 { font-size: 1.6rem; letter-spacing: 2px; }
+            .header p { font-size: 0.9rem; }
+            .factors-grid { grid-template-columns: 1fr; gap: 15px; padding: 20px; }
+            .factor-img { height: 180px; }
+            .factor-content { padding: 20px; }
+            .factor-title { font-size: 1.1rem; }
+            .sub-risk { padding: 12px; margin-bottom: 12px; }
+            .sub-risk strong { font-size: 0.95rem; }
+            .sub-risk ul { font-size: 0.85rem; }
+            .footer-summary { padding: 15px; font-size: 0.85rem; }
+        }
+
+        /* Móviles (max-width: 768px) */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .main-container { border: 1px solid var(--safe-blue); }
+            .header { padding: 15px; }
+            .header h1 { font-size: 1.4rem; letter-spacing: 1px; }
+            .header p { font-size: 0.8rem; }
+            .factors-grid { padding: 15px; gap: 10px; }
+            .factor-card { border-radius: 10px; }
+            .factor-img { height: 140px; }
+            .factor-content { padding: 15px; }
+            .factor-title { font-size: 1rem; }
+            .sub-risk { padding: 10px; margin-bottom: 10px; }
+            .sub-risk strong { font-size: 0.9rem; }
+            .sub-risk ul { font-size: 0.8rem; padding-left: 15px; }
+            .sub-risk ul li { margin-bottom: 5px; }
+            .footer-summary { padding: 12px; font-size: 0.8rem; }
+        }
+
+        /* Móviles pequeños (max-width: 480px) */
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .main-container { border-radius: 8px; }
+            .header { padding: 10px; }
+            .header h1 { font-size: 1.2rem; letter-spacing: 1px; }
+            .header p { font-size: 0.75rem; }
+            .factors-grid { padding: 10px; gap: 8px; }
+            .factor-card { border-radius: 8px; }
+            .factor-img { height: 110px; }
+            .factor-content { padding: 10px; }
+            .factor-title { font-size: 0.95rem; }
+            .sub-risk { padding: 8px; margin-bottom: 8px; }
+            .sub-risk strong { font-size: 0.85rem; }
+            .sub-risk ul { font-size: 0.75rem; padding-left: 12px; }
+            .sub-risk ul li { margin-bottom: 4px; }
+            .footer-summary { padding: 10px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="header">
+        <h1>Análisis de Factores de Riesgo Ocupacional</h1>
+        <p>Evaluación Técnica de Salud en el Trabajo • Industria Textil S.A.C.</p>
+    </div>
+
+    <div class="factors-grid">
+        <div class="factor-card">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=600&q=80" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">1. Factores Físicos</div>
+                <div class="sub-risk">
+                    <strong>Ruido y Vibraciones:</strong>
+                    <ul>
+                        <li>Niveles > 85 dB en remalladoras causan hipoacusia irreversible.</li>
+                        <li>Vibraciones mano-brazo provocan síndrome de dedos blancos y artrosis.</li>
+                    </ul>
+                </div>
+                <div class="sub-risk">
+                    <strong>Iluminación y Temperatura:</strong>
+                    <ul>
+                        <li>Iluminación deficiente causa astenopia y errores de corte.</li>
+                        <li>Estrés térmico (35-40°C) en planchado causa golpes de calor y deshidratación.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="factor-card">
+            <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">2. Factores Mecánicos</div>
+                <div class="sub-risk" style="border-left-color: var(--danger-red);">
+                    <strong>Cortes y Amputaciones:</strong>
+                    <ul>
+                        <li>Cuchillas en movimiento constante causan laceraciones profundas y pérdida de falanges.</li>
+                    </ul>
+                </div>
+                <div class="sub-risk" style="border-left-color: var(--danger-red);">
+                    <strong>Atrapamientos y Quemaduras:</strong>
+                    <ul>
+                        <li>Fracturas por prensas neumáticas y quemaduras de 3er grado por planchas a 220°C.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="factor-card">
+            <img src="img/factores_Ergonomicos..jpg" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">3. Factores Ergonómicos</div>
+                <div class="sub-risk">
+                    <strong>Movimientos Repetitivos:</strong>
+                    <ul>
+                        <li>Túnel carpiano, tendinitis de De Quervain y epicondilitis por gestos cíclicos.</li>
+                    </ul>
+                </div>
+                <div class="sub-risk">
+                    <strong>Cargas y Posturas:</strong>
+                    <ul>
+                        <li>Levantamiento de rollos (15-30 kg) causa hernias inguinales y lumbago agudo.</li>
+                        <li>Fatiga por jornadas de 10h reduce tiempos de reacción y aumenta accidentes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="factor-card">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">4. Factores Psicosociales</div>
+                <div class="sub-risk">
+                    <strong>Estrés y Cronodisrupción:</strong>
+                    <ul>
+                        <li>Ansiedad por alta demanda y presión de clientes europeos.</li>
+                        <li>Turnos rotativos causan cronodisrupción, obesidad y mayor riesgo nocturno.</li>
+                    </ul>
+                </div>
+                <div class="sub-risk">
+                    <strong>Carga Mental:</strong>
+                    <ul>
+                        <li>Agotamiento emocional (Burnout) y fatiga por atención constante en calidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="factor-card">
+            <img src="img/factores_quimicos.jpg" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">5. Factores Químicos</div>
+                <div class="sub-risk">
+                    <strong>Polvo Textil y Vapores:</strong>
+                    <ul>
+                        <li>Bisinosis (asma ocupacional) y dermatitis por partículas de algodón.</li>
+                        <li>Daño hepático a largo plazo por inhalación de disolventes y lubricantes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="factor-card">
+            <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=600&q=80" class="factor-img">
+            <div class="factor-content">
+                <div class="factor-title">6. Factores Biológicos</div>
+                <div class="sub-risk">
+                    <strong>Hongos y Bacterias:</strong>
+                    <ul>
+                        <li>Dermatomicosis e infecciones respiratorias (aspergilosis) en almacenes húmedos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-summary">
+        Advertencia: La fatiga por 10 horas de trabajo es el principal agravante de todos los riesgos analizados.
+    </div>
+</div>
+
+</body>
+</html>

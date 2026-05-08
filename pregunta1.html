@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis de Seguridad Industrial SAC - Pregunta 1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --neon: #00d4ff; --danger: #ff4d4d; --bg: #0a0f14; }
+        body { background: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; padding: 30px; }
+        
+        .fiche-container { max-width: 1100px; margin: auto; }
+        .fiche-card { 
+            background: rgba(20, 30, 40, 0.95); 
+            border-radius: 15px; 
+            margin-bottom: 35px; 
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .fiche-sidebar { width: 300px; background: rgba(0,0,0,0.4); padding: 20px; text-align: center; }
+        .fiche-main { flex: 1; padding: 25px; }
+
+        .area-img { width: 100%; height: 180px; border-radius: 10px; object-fit: cover; margin-bottom: 15px; border: 1px solid var(--neon); }
+        
+        /* Iconos SVG integrados para que NO fallen */
+        .icon-box { background: #1a1a1a; padding: 10px; border-radius: 8px; margin: 10px 0; display: flex; align-items: center; gap: 10px; border-left: 4px solid var(--neon); }
+        .svg-icon { width: 40px; height: 40px; fill: var(--neon); }
+
+        h2 { color: var(--neon); text-transform: uppercase; margin-bottom: 5px; font-size: 1.6rem; }
+        .risk-badge { display: inline-block; padding: 5px 15px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; }
+        
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .detail-box h4 { color: var(--neon); border-bottom: 1px solid rgba(0, 212, 255, 0.2); padding-bottom: 5px; margin-bottom: 10px; font-size: 0.9rem; }
+        .detail-box ul { list-style: none; padding: 0; font-size: 0.85rem; }
+        .detail-box li { margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .detail-box li::before { content: "»"; position: absolute; left: 0; color: var(--neon); }
+    </style>
+    
+    <!-- Media Queries para Responsividad -->
+    <style>
+        /* Tablets y móviles grandes (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .fiche-container { padding: 20px; }
+            .fiche-card { flex-direction: column; }
+            .fiche-sidebar { width: 100%; padding: 15px; }
+            .fiche-main { padding: 20px; }
+            .detail-grid { grid-template-columns: 1fr; gap: 15px; }
+            h2 { font-size: 1.4rem; }
+            .area-img { height: 150px; }
+            .icon-box { padding: 8px; margin: 8px 0; }
+            .svg-icon { width: 35px; height: 35px; }
+        }
+
+        /* Móviles (max-width: 768px) */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .fiche-container { padding: 10px; }
+            .fiche-card { margin-bottom: 20px; }
+            .fiche-sidebar { padding: 10px; }
+            .fiche-main { padding: 15px; }
+            .detail-grid { gap: 10px; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.2rem; }
+            .area-img { height: 120px; }
+            .icon-box { padding: 6px; margin: 6px 0; gap: 8px; }
+            .svg-icon { width: 30px; height: 30px; }
+            .detail-box h4 { font-size: 0.8rem; }
+            .detail-box ul { font-size: 0.8rem; }
+            .risk-badge { font-size: 0.7rem; padding: 4px 10px; }
+        }
+
+        /* Móviles pequeños (max-width: 480px) */
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .fiche-container { padding: 5px; }
+            .fiche-card { border-radius: 10px; }
+            .fiche-sidebar { padding: 8px; }
+            .fiche-main { padding: 10px; }
+            h1 { font-size: 1.3rem; }
+            h2 { font-size: 1rem; }
+            .area-img { height: 100px; }
+            .icon-box { padding: 5px; margin: 5px 0; gap: 6px; flex-direction: column; text-align: center; }
+            .svg-icon { width: 25px; height: 25px; }
+            .detail-box h4 { font-size: 0.75rem; }
+            .detail-box ul { font-size: 0.75rem; }
+            .detail-box li { padding-left: 12px; margin-bottom: 6px; }
+            .risk-badge { font-size: 0.65rem; padding: 3px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="fiche-container">
+    <h1 style="text-align: center; border-bottom: 2px solid var(--neon); padding-bottom: 10px;">Protocolo Técnico de Seguridad SAC</h1>
+
+    <div class="fiche-card">
+        <div class="fiche-sidebar">
+            <img src="https://hazlanirun.com/wp-content/uploads/2020/12/HAZLAN-IRUNERO-3-COMUNICACION-FDEFOTO-IRUN-1-uai-1766x993.jpg" class="area-img">
+            <div class="icon-box">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                <span style="font-size: 0.7rem;">ADVERTENCIA: RIESGO MECÁNICO</span>
+            </div>
+            <div class="icon-box">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <span style="font-size: 0.7rem;">USO OBLIGATORIO DE GUANTES</span>
+            </div>
+        </div>
+        <div class="fiche-main">
+            <h2>01. Zona de Corte Industrial</h2>
+            <div class="risk-badge" style="background: var(--danger);">PRIORIDAD: CRÍTICA (ALTO - 24H)</div>
+            
+            <div class="detail-grid">
+                <div class="detail-box">
+                    <h4>Identificación de Peligros</h4>
+                    <ul>
+                        <li><strong>Mecánico:</strong> Cuchillas circulares de alta velocidad con capacidad de amputación directa.</li>
+                        <li><strong>Físico:</strong> Ruido de motores eléctricos que superan los 85dB, causando hipoacusia.</li>
+                        <li><strong>Químico:</strong> Polvo textil y microfibras que generan afecciones respiratorias crónicas.</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h4>Medidas de Control (Jerarquía)</h4>
+                    <ul>
+                        <li><strong>Ingeniería:</strong> Instalación de guardas fijas y protector de cuchilla regulable.</li>
+                        <li><strong>EPP:</strong> Guantes de malla de acero inoxidable (Nivel 5) y orejeras de alta atenuación.</li>
+                        <li><strong>Capacitación:</strong> Entrenamiento en bloqueo y etiquetado (LOTO).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fiche-card">
+        <div class="fiche-sidebar">
+            <img src="https://serflex.com.pe/images/sew-img2.jpg" class="area-img">
+            <div class="icon-box">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                <span style="font-size: 0.7rem;">USO DE PROTECCIÓN VISUAL</span>
+            </div>
+            <div class="icon-box">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/></svg>
+                <span style="font-size: 0.7rem;">PAUSA ACTIVA OBLIGATORIA</span>
+            </div>
+        </div>
+        <div class="fiche-main">
+            <h2>02. Zona de Confección / Costura</h2>
+            <div class="risk-badge" style="background: #ffcc00; color: black;">PRIORIDAD: MEDIA (72H)</div>
+            
+            <div class="detail-grid">
+                <div class="detail-box">
+                    <h4>Riesgos Ergonómicos y Físicos</h4>
+                    <ul>
+                        <li><strong>Postural:</strong> Jornadas de 10 horas en posición sedentaria causando lumbalgia crónica.</li>
+                        <li><strong>Repetitividad:</strong> Movimientos constantes de manos que derivan en Síndrome del Túnel Carpiano.</li>
+                        <li><strong>Iluminación:</strong> Deficiencia lumínica que incrementa errores operativos y fatiga visual.</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h4>Plan de Mitigación</h4>
+                    <ul>
+                        <li><strong>Administrativo:</strong> Rotación de turnos y programa de pausas activas cada 2 horas.</li>
+                        <li><strong>Mobiliario:</strong> Ajuste de sillas ergonómicas con soporte lumbar dinámico.</li>
+                        <li><strong>Iluminación:</strong> Mejora del sistema a tecnología LED con enfoque en puntos de costura.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fiche-card" style="border-left: 5px solid var(--danger);">
+        <div class="fiche-sidebar">
+            <img src="https://www.fitex.it/wp-content/uploads/2024/08/shutterstock_2325542961-min-scaled.jpg" class="area-img">
+            <div class="icon-box">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M13 2v20h-2V2h2zm-4 0v20H7V2h2zm8 0v20h-2V2h2z"/></svg>
+                <span style="font-size: 0.7rem;">PELIGRO: ALTA TEMPERATURA</span>
+            </div>
+        </div>
+        <div class="fiche-main">
+            <h2>03. Zona de Acabado y Planchado</h2>
+            <div class="risk-badge" style="background: var(--danger);">PRIORIDAD: ALTA (IMPORTANTE)</div>
+            
+            <div class="detail-grid">
+                <div class="detail-box">
+                    <h4>Análisis de Exposición Térmica</h4>
+                    <ul>
+                        <li><strong>Térmico:</strong> Vapor a alta presión y superficies calientes que causan quemaduras de 2do grado.</li>
+                        <li><strong>Ambiental:</strong> Estrés térmico por acumulación de calor en áreas cerradas, afectando la productividad.</li>
+                        <li><strong>Eléctrico:</strong> Riesgo de contacto indirecto por humedad y cables de planchas industriales.</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h4>Controles Específicos</h4>
+                    <ul>
+                        <li><strong>Ventilación:</strong> Instalación de extractores de calor de alto volumen.</li>
+                        <li><strong>Mantenimiento:</strong> Revisión semanal de válvulas de seguridad en calderas y planchas.</li>
+                        <li><strong>EPP Térmico:</strong> Guantes aislantes de Kevlar y mandiles de algodón ignífugo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
